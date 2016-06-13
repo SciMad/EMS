@@ -1,7 +1,9 @@
 <?php
 
-use Models\Event;
+use Models\MyEvent;
 use Models\Organiser;
+
+
 
 class EventsController extends \BaseController {
 
@@ -71,6 +73,9 @@ class EventsController extends \BaseController {
 		$event1->event_time = '09:00:00';				
 		$event1->save();
 
+		$id = $event1->id;
+		return Redirect::to("events/$id");
+
 	}
 
 
@@ -82,7 +87,12 @@ class EventsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		//$event = new MyEvent;
+
+		$event1 = DB::table('events')->find($id);
+		
+		//$event2 = MyEvent::find($id);
+		dd($event1);
 	}
 
 

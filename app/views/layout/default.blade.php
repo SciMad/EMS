@@ -72,12 +72,6 @@
 
 @yield ('content')
 
-
-
-
-
-
-
 <script type="text/javascript" src="/jQuery/jquery-2.2.3.js"></script>
 	<script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">

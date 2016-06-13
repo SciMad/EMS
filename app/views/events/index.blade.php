@@ -1,29 +1,42 @@
-@extends ('layout.default')
+@extends ('layout.events')
 
-@section ('content')
-	<div class="container">
-	<div class="row mainContent">
-		<div class="col-md-3 left-tab">
-				Hello
-		</div>
-		<div class="col-md-6 middle-tab">
-			Show Events Detail Here
-		</div>
-		<div class="col-md-3 right-tab">
-			
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4"></div>
-		<div class="col-md-4">
-			<ul class="pager">
-				<input type="text" hidden name="currentEventNum" value="1">
-				<li class="previous"><a href="#">&larr; Previous</a></li>
-				<li class="next"><a href="#">Next &rarr;</a></li>
-			</ul>
-		</div>
-		<div class="col-md-4"></div>
-	</div>
-</div>
+
+@section ('panel')
+		<?php
+			$events = MyEvent::all();
+			foreach ($events as $event) {
+				echo '<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h1 class="panel-title">';echo $event->title; echo'</h1>
+				</div>
+				<div class="panel-body">
+					<div class="col-sm-3">
+						<a href="#" class="thumbnail"> <img src="/images/fb.jpg" alt="Generic placeholder thumbnail"> </a>
+					</div>
+					<div class="col-sm-9">';
+						echo "<strong>".$event->title."</strong>";
+						echo "<br/>";
+						echo $event->description;
+						echo "<br/>";
+						echo $event->event_time;
+						echo "<br/>";
+						echo $event->event_date;
+						echo "<br/>";
+						echo $event->venue;
+
+					echo '
+						<div class ="row">
+							
+							<div class="col-sm-5"><a href="/events/"><button type="button" class="btn btn-warning">Modify Event</button></a>
+							</div>
+							<div class="col-sm-5"><a href="/events/"><button type="button" class="btn btn-danger">Delete Event</button></a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>';
+			}
+		?>
 @stop
 
