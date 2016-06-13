@@ -63,9 +63,9 @@
 			<li id ="gallery" class=""><a href="/gallery">Gallery</a></li>
 			<li id ="aboutus" class=""><a href="/aboutus">About Us</a></li>
 		</ul>
-
 		<div align="right">
 			<p style="color:blue;" class="navbar-text">Signed in as {{"currentUser"}}</p>
+			<a  href = "/logout" class="navbar-link">Logout</a>
 		</div>
 	</div>
 </nav>

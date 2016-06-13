@@ -54,22 +54,22 @@ class EventsController extends \BaseController {
 	{
 
 		$postInput=Input::all();
-		//dd($postInput);
-		
 		$event1 = new MyEvent;
+
+		//Validation of $postInput to be done if necessary
+
 		$event1->title = $postInput['title'];
 		$event1->description = $postInput['description'];
 		$event1->venue = $postInput['venue'];
 		$event1->organiser = $postInput['organiser'];
 		$event1->event_date = $postInput['date'];
+		
+		//TODO: Time parsing and storing to be done later
 		//if (($postInput['hour']) ==12) $postInput['hour'] =0;
 		//if ($postInput['ampm'])='PM' $postInput['hour'] = $postInput['hour']+12; 
-		
-		//$event1->event_time = $postInput['hour'].':'.$postInput['minute'].':00';
+		//working with a random time now
+		$event1->event_time = '09:00:00';				
 		$event1->save();
-		
-
-
 
 	}
 
